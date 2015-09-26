@@ -1,0 +1,16 @@
+dependencies:
+
+  * GNU or Intel compilers, GNU Scientific Library, OpenMPI (other implementations may also work), XTC Library (from gromacs.org)
+
+install:
+
+  0. `cd src/jls/`
+  
+  1. edit main.cpp to your liking (optional)
+
+  2. edit the makefile to match your environment.  see the provided
+     makefiles for examples.
+  
+  3. `make`
+  
+  there will be a "jls" binary.  that's it.

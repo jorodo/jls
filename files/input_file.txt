@@ -1,0 +1,29 @@
+proj_name = run00_replex_LJN500P4T0                   # project name
+output_dir = traj/                    # dir in which output will be written
+rst_dir = rst/                       # dir from which to read rst
+#rst_name = run00_replex_LJN500P4T0                     # proj name from which to rst
+log_dir = log/                           # directory for the logfile
+
+ensemble = npt                           # thermodynamic ensemble
+calculation = mc                         # mc, md, widom_traj
+#nreplex = 200
+lj_particles = 500               # jagla particles
+ndims = 3                           # number of dimensions
+ic_fcc = true                       # initialize to fcc lattice
+density = 863.1654950219                       # density [u*nm^-ndims]
+temp = 82.99999                             # temperature [K]
+pressure = 2.4877239049                     # pressure [kJ*mol^-1*nm^-ndims]
+nsteps = 10000                         # number of MC/MD steps
+rst_freq = 100                     # freq to write restart files
+delta_max = 0.1                   # max trial particle displacement
+delta_lnV_max = 0.1           # max trial volume displacement
+
+stdout_freq = 100                        # freq to write to stdout
+cor_out_freq = 1000                      # frequency to write coordinates
+eng_out_freq = 100                       # frequency to write energies
+
+seed_random = true                       # randomly seed the RNG
+cutoff = .85025
+shift = false                             # shift the potential
+tail_cor = true                         # potential energy tail correction
+verbose = true                           # verbosity flag

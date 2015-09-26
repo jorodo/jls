@@ -1,0 +1,42 @@
+pre-compiled binaries:
+  
+  Are available in bin/ for linux amd64 and i386 architectures.
+
+units:
+  
+  The units used are the same as GROMACS MD Units.  See the GROMACS
+  manual for explanation.
+
+
+default params:
+
+  See the example input file in files/.
+
+
+notes on modification:
+
+  All of the potential energy functions and energy/force calculation methods
+  are contained in the potentials section of the ParticleSystem object.  This
+  is so that one can easily add new potential functional forms and hence new
+  particle types to the system.  To do so:
+
+  	   * edit the particles files to add the new particle type to the 
+	     Particle class
+	   * add the identification string to ParticleLabel in utils
+	   * add the interaction potential(s) to the potentials section of
+	     the ParticleSystem class.
+	   * edit ParticleSystem::get_pair_enery to incorporate the new
+	     functions
+
+  It should Just Work.
+
+
+caveats:
+  
+  I've yet to implement any exception handling, and I doubt I'll get around to
+  it anytime soon.  The most likely place this could hurt you is if you mess
+  something up in the input file since I don't sanity check the values of the
+  parameters.  If you submit something incorrectly, you will get segfaults most
+  likely.  It shouldn't be too hard to figure out though, if you know what you
+  are doing.
+

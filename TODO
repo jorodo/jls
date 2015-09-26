@@ -1,0 +1,19 @@
+some things that need to be done eventually:
+
+ * wrap all files in a JLS namespace
+
+ * break up the Particle System object into parent/child classes
+   - This will permit code optimization by removing all the "if's"
+   - Make the ParticleSystem class the parent class
+   - NVTSytem derives from ParticleSystem
+   - NPTSystem derives from NVTSystem
+   - etc.
+
+ * inline frequently-used small functions
+
+some things that may be done eventually:
+
+ * exception handling
+   -sanity test input; stuff breaks at the moment
+
+please send suggestions to jrdowdle at gmail dot com

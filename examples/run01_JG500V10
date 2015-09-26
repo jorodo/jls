@@ -1,0 +1,26 @@
+proj_name = run01_JG500V10                   # project name
+output_dir = traj/                    # dir in which output will be written
+rst_dir = rst/                       # dir from which to read rst
+rst_name = run00_JG500V10                     # proj name from which to rst
+rst_coords = run00_JG500V10.rst.cor                 # coords from which to rst
+log_dir = log/                           # directory for the logfile
+
+ensemble = nvt                           # thermodynamic ensemble
+calculation = mc                         # mc, md, widom_traj
+jg_particles = 500            # jagla particles
+ndims = 3                           # number of dimensions
+density = 7.65306                        # density [u*nm^-ndims]
+temp = 168.38033                             # temperature [K]
+ncycles_target = 50000         # number of MC/MD cycles
+
+adjust = false                            # adjust max displacements during run
+
+stdout_freq = 10                         # freq to write to stdout
+cor_out_freq = 20                        # frequency to write coordinates
+eng_out_freq = 10                        # frequency to write energies
+rst_freq = 1000                          # freq to write restart files
+
+seed_random = false                       # randomly seed the RNG
+shift = false                            # shift the potential
+tail_cor = false                         # potential energy tail correction
+verbose = true                           # verbosity flag

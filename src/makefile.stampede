@@ -1,0 +1,39 @@
+#
+# Makefile for Simple MC for TACC Stampede
+# John R. Dowdle
+# June 2008
+#  
+#  Be sure to load the following modules:
+#    module load intel
+#    module load gsl/1.10
+#    module load openmpi
+
+CC = mpiCC
+LD = mpiCC
+CFLAGS = -Wall -O3 -I${TACC_GSL_INC}
+LDFLAGS = -I${TACC_GSL_INC} -L${TACC_GSL_LIB} -lgsl -lgslcblas -i-dynamic
+
+PROG = jls
+OBJS = main.o random_seed.o particle_system_construct.o particle_system_mc.o particle_system_free_eng.o particle_system_fileio.o particle_system_utils.o particle_system_init.o particle_system_pot_eng.o utils.o particle.o multi_system.o
+
+all:	$(PROG)
+
+$(PROG):	$(OBJS)
+		$(LD) $(OBJS) $(LDFLAGS) -o $(PROG)
+
+particle_system_%.o:	particle_system_%.cpp particle_system.h
+	$(CC) $(CFLAGS) -c $<
+
+%.o:	%.cpp %.h
+	$(CC) $(CFLAGS) -c $<
+
+
+main.o:		main.cpp random_seed.h particle_system.h utils.h particle.h
+	$(CC) $(CFLAGS) -c $<
+
+clean:
+	/bin/rm -f *.o 
+
+clobber:
+	/bin/rm -rf *~ \#*\# *.o $(PROG) test* core
+
